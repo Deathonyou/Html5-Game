@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>poke-index</title>
+    <link rel="stylesheet" type="text/css" href="cssVer1.0.css">
+    <style>
+        /*body{*/
+        /*    background: url('./imgs/map.png') no-repeat fixed;*/
+        /*    background-size：cover;*/
+        /*}*/
+    </style>
+</head>
+<body>
+<div id="app">
+        <div class="map">
+<!--            <div id="kabi"></div>-->
+<!--            <div id="green"></div>-->
+<!--            <div id="girl"></div>-->
+<!--            <div id="man"></div>-->
+            <div id="duck"></div>
+            <div id="borderN"></div>
+            <div id="borderS"></div>
+            <div id="borderW"></div>
+            <div id="borderE"></div>
+            <div id="house1"></div>
+            <div id="house2"></div>
+            <div id="house3"></div>
+            <div id="house4"></div>
+            <div id="text">
+                <p class="textP"></p>
+            </div>
+            <img src="./imgs/map.png" style="width: 100%" id="map">
+            <img id="player" style="left: 600px; top: 600px;">
+            <!--    <div id="test">01010101</div>-->
+        </div>
+</div>
+
+<script type="text/javascript">
+    var text = document.getElementById('text');
+    var duck = document.getElementById('duck');
+    duck.onclick = function (){
+        console.log('666');
+        text.style.display = 'block';
+
+    };
+
+    var player=document.getElementById('player');
+    var key={
+        W:87,S:83,A:65,D:68
+    };
+    // X方向满足：|x2-x1|<=rx1+rx2并且Y方向满足：|y2-y1|<=ry1+ry2
+    function keymove(e){
+        function check() {
+            if (Math.abs(parseInt(player.style.left) + 40 - 410)<=  40 + 410 && Math.abs(parseInt(player.style.top) - 110) <=  60 + 110){
+                // console.log('777上');
+                return true;
+            }else if (Math.abs(parseInt(player.style.left) - 50)<=  40 + 50 && Math.abs(parseInt(player.style.top) - 330) <=  60 + 330) {
+                // console.log('888左');
+                return true;
+            }else if (Math.abs(parseInt(player.style.left) - 410)<=  40 + 410 && Math.abs(parseInt(player.style.top) - 630) <=  60 + 30) {
+                // console.log('999下');
+                return true;
+            }else if (Math.abs(parseInt(player.style.left) - 1430)<=  40 + 120 && Math.abs(parseInt(player.style.top) - 760) <=  60 + 870) {
+                // console.log('000右');
+                return true;
+            }
+            // else if (Math.abs(parseInt(player.style.left) - 730)<=  40 + 160 && Math.abs(parseInt(player.style.top) - 335) <=  60) {
+            //     // console.log('house1');
+            //     return true;
+            // }else if (Math.abs(parseInt(player.style.left) - 1250)<=  40 + 150 && Math.abs(parseInt(player.style.top) - 300) <=  60 + 70) {
+            //     // console.log('house4');
+            //     return true;
+            // }else if (Math.abs(parseInt(player.style.left) + 40 - 400)<=  40 + 120 && Math.abs(parseInt(player.style.top) + 60 - 780) <=  60 + 40) {
+            //     // console.log('house2');
+            //     return true;
+            // }else if (Math.abs(parseInt(player.style.left) + 40 - 980)<=  40 + 120 && Math.abs(parseInt(player.style.top) + 60 - 850) <=  60 + 50) {
+            //     // console.log('house3');
+            //     return true;
+            // }
+        }
+        function pressW() {
+            player.style.animation = 'animW 1.2s infinite';
+            // player.style.background = 'url(./imgs/player_images/1_14.png)';
+            player.style.top=top-20+'px';
+            if (check()){
+                pressS();
+            }
+        }
+        function pressS() {
+            player.style.animation = 'animS 1.2s infinite';
+            player.style.top=top+20+'px';
+            if (check()){
+                pressW();
+            }
+        }
+        function pressA() {
+            player.style.animation = 'animA 1.2s infinite';
+            player.style.left=left-20+'px';
+            if (check()){
+                pressD();
+            }
+        }
+        function pressD() {
+            player.style.animation = 'animD 1.2s infinite';
+            player.style.left=left+20+'px';
+            if (check()){
+                pressA();
+            }
+        }
+        var left=parseInt(player.style.left);
+        var top=parseInt(player.style.top);
+        switch(e.keyCode){
+            case key.W:
+                pressW();
+                // player.style.top=top-10+'px';
+                check();
+                // console.log(player.style.top);
+                // console.log(parseInt(player.style.top));
+
+                // if (player.style.top <= '350px'){
+                //     console.log('666');
+                // X方向满足：|x2-x1|<=rx1+rx2并且Y方向满足：|y2-y1|<=ry1+ry2
+                // 矩形A 的中心坐标为A(x1, y1)，宽度和高度分别为rx1、ry1，矩形B 的中心坐标为B(x2, y2)，宽度和高度分别为rx1、ry1，矩形B 的中心坐标为B(x2, y2)，宽度和高度分别是rx2、ry2
+                // console.log(Math.abs(parseInt(player.style.top) - 400));
+                // if (Math.abs(player.style.left - 400) <=  40 + 265 && Math.abs(player.style.top - 235) <=  60 + 100) {
+                //     console.log("777");
+                // }
+                // }
+                break;
+            case key.S:
+                pressS();
+                // player.style.top=top+10+'px';
+                check();
+                break;
+            case key.A:
+                pressA();
+                check();
+                break;
+            case key.D:
+                pressD();
+                check();
+                break;
+        }
+    }
+    document.onkeydown=keymove;
+
+</script>
+</body>
+</html>

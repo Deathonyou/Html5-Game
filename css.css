@@ -1,0 +1,264 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+/*#app{*/
+/*    !*background: black;*!*/
+/*    height: 100%;*/
+/*    width: 100%;*/
+/*}*/
+/*#header,#footer{*/
+/*    background: #101010;*/
+/*    height: 30px;*/
+/*}*/
+/*#content{*/
+/*    background: #101010;*/
+/*    width: 100%;*/
+/*}*/
+/*.map {*/
+/*    !*background: url("./imgs/map.png");*!*/
+/*    position: relative;*/
+/*    margin: 0 20px 0 20px;*/
+/*    !*width: 100%;*!*/
+/*}*/
+#center{
+    position: relative;
+}
+#text{
+    position: absolute;
+    /*background: url("imgs/text-boxes0_03.png");*/
+    /*background-repeat: no-repeat;*/
+    /*margin: auto;*/
+    top: 500px;
+    left: 0;
+    height: 100px;
+    width: 800px;
+    display: none;
+}
+.textTemplate{
+    /*display: none;*/
+}
+#player {
+    position: absolute;
+    /*left: 500px;*/
+    /*top: 500px;*/
+    /*left: 350px;*/
+    /*top: 200px;*/
+    height: 55px;
+    width: 32px;
+    /*background: #0ff;*/
+    /*border-radius: 50px;*/
+    /*background-size: 256px 400px;*/
+    background: url("./imgs/images/player1_01.png");
+    /*border-image-width: 0;*/
+    /*background-position: -32px -48px;*/
+    /*border: 0;*/
+    /*animation: anim 2s infinite;*/
+ }
+
+/*对话部分*/
+#textKabi {
+    position: absolute;
+    float: left;
+    top: 520px;
+    left: 45px;
+    z-index: 10;
+    font-weight:bold;
+    display: none;
+}
+#textMan {
+    position: absolute;
+    float: left;
+    top: 520px;
+    left: 45px;
+    z-index: 10;
+    font-weight:bold;
+    display: none;
+}
+#textGreen {
+    position: absolute;
+    float: left;
+    top: 520px;
+    left: 45px;
+    z-index: 10;
+    font-weight:bold;
+    display: none;
+}
+#textDuck {
+    position: absolute;
+    float: left;
+    top: 520px;
+    left: 45px;
+    z-index: 10;
+    font-weight:bold;
+    display: none;
+}
+#textGirl {
+    position: absolute;
+    float: left;
+    top: 520px;
+    left: 45px;
+    font-weight:bold;
+    z-index: 10;
+    display: none;
+}
+#textBoard {
+    position: absolute;
+    float: left;
+    top: 520px;
+    left: 45px;
+    z-index: 10;
+    font-weight:bold;
+    display: none;
+}
+
+#kabi{
+    /*background: url("./imgs/kabi.png");*/
+    background-size: 300px 300px;
+    position: absolute;
+    top: 255px;
+    left: 45px;
+    height: 80px;
+    width: 90px;
+}
+#green{
+    /*background: url("./imgs/green.png");*/
+    position: absolute;
+    background-position: 0 175px;
+    top: 475px;
+    left: 90px;
+    height: 38px;
+    width: 40px;
+}
+#man{
+    /*background: url("./imgs/man.png");*/
+    /*background-position: 0 95px;*/
+    position: absolute;
+    top: 285px;
+    left: 705px;
+    height: 38px;
+    width: 28px;
+}
+#girl{
+    /*background: url("./imgs/girl.png");*/
+    /*background-position: 0 -10px;*/
+    position: absolute;
+    top: 222px;
+    left: 449px;
+    height: 38px;
+    width: 28px;
+}
+#duck{
+    /*background: url("./imgs/duck.png");*/
+    /*background-size: 180px 200px;*/
+    background-position: 0 -10px;
+    position: absolute;
+    top: 230px;
+    left: 482px;
+    height: 30px;
+    width: 28px;
+}
+@keyframes animW {
+    0%{background: url("./imgs/images/player1_13.png")}
+    25%{background: url("./imgs/images/player1_14.png")}
+    50%{background: url("./imgs/images/player1_15.png")}
+    75%{background: url("./imgs/images/player1_16.png")}
+    100%{background: url("./imgs/images/player1_13.png")}
+}
+@keyframes animS {
+    0%{background: url("./imgs/images/player1_01.png")}
+    25%{background: url("./imgs/images/player1_02.png")}
+    50%{background: url("./imgs/images/player1_03.png")}
+    75%{background: url("./imgs/images/player1_04.png")}
+    100%{background: url("./imgs/images/player1_01.png")}
+}
+@keyframes animA {
+    0%{background: url("./imgs/images/player1_05.png")}
+    25%{background: url("./imgs/images/player1_06.png")}
+    50%{background: url("./imgs/images/player1_07.png")}
+    75%{background: url("./imgs/images/player1_08.png")}
+    100%{background: url("./imgs/images/player1_05.png")}
+}
+@keyframes animD {
+    0%{background: url("./imgs/images/player1_09.png")}
+    25%{background: url("./imgs/images/player1_10.png")}
+    50%{background: url("./imgs/images/player1_11.png")}
+    75%{background: url("./imgs/images/player1_12.png")}
+    100%{background: url("./imgs/images/player1_09.png")}
+}
+/*#test {*/
+/*    color: #1d7db1;*/
+/*    height: 100px;*/
+/*}*/
+#house1 {
+    position: absolute;
+    background: #882eae;
+    width: 205px;
+    height: 180px;
+    left: 250px;
+    top: 0px;
+    opacity: 0.3;
+}
+#borderW {
+    position: absolute;
+    background: #1ea0ae;
+    width: 200px;
+    height: 600px;
+    left: 0px;
+    top: 0px;
+    opacity: 0.3;
+}
+#borderS {
+    position: absolute;
+    background: #ae332f;
+    width: 800px;
+    height: 70px;
+    left: 0px;
+    top: 530px;
+    opacity: 0.3;
+}
+#borderE {
+    position: absolute;
+    background: #aead20;
+    width: 150px;
+    height: 600px;
+    left: 650px;
+    top: 0px;
+    opacity: 0.3;
+}
+#borderN {
+    position: absolute;
+    background: #ae287d;
+    width: 800px;
+    height: 140px;
+    /*left: 400px;*/
+    top: 0px;
+    opacity: 0.3;
+}
+#house2 {
+    position: absolute;
+    background: #1ea0ae;
+    width: 150px;
+    height: 120px;
+    left: 130px;
+    top: 310px;
+    opacity: 0.3;
+}
+#house3 {
+    position: absolute;
+    background: #1ea0ae;
+    width: 150px;
+    height: 120px;
+    left: 405px;
+    top: 350px;
+    opacity: 0.3;
+}
+#house4 {
+    position: absolute;
+    background: #1ea0ae;
+    width: 150px;
+    height: 120px;
+    left: 530px;
+    top: 125px;
+    opacity: 0.3;
+}

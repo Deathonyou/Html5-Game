@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>template</title>
+    <link rel="stylesheet" type="text/css" href="css.css">
+    <link rel="stylesheet" type="text/css" href="css_game.css">
+    <!--    <link rel="stylesheet" type="text/css" href="./alert_style.css">-->
+    <script src="js/game.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <!--    <script src="./js/alertscript.js"></script>-->
+    <style type="text/css">
+        *{
+            margin: 0;
+        }
+        body, html{
+            width: 100%;
+            height: 100%;
+        }
+        #center{
+            width: 800px;
+            height: 600px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            /*width:60%;*/
+            /*height:80%;*/
+            /*padding:20px;*/
+            text-align:center;
+            background: #484848;
+            /*color:#fff;*/
+            transform: translate(-50%, -50%);
+            overflow: hidden;
+        }
+        #img{
+            width: 100%;
+            /*margin: auto 0;*/
+        }
+
+        /*nav*/
+        .menu-container {
+            /*width: 80%;*/
+            /*margin: 0 auto;*/
+            background: #e9e9e9;
+        }
+        .menu > ul {
+            margin: 0 auto;
+            width: 100%;
+            list-style: none;
+            padding: 0;
+            position: relative;
+            /* IF .menu position=relative -> ul = container width, ELSE ul = 100% width */
+            box-sizing: border-box;
+        }
+        .menu > ul > li {
+            float: right;
+            background: #484848;
+            padding: 0;
+            margin: 0;
+        }
+        .menu > ul > li a {
+            text-decoration: none;
+            padding: 1.5em 3em;
+            display: block;
+            color: #aeaeae;
+        }
+        .menu > ul > li:hover {
+            background: #dddddd;
+        }
+        a:link{
+            color: #777777;
+        }
+        a:visited{
+            color: #777777;
+        }
+        .right {
+            list-style: none;
+            margin: 0px;
+            float: right;
+            width: 400px;
+            /*background: #0aafe6;*/
+            text-align: center;
+        }
+        .left{
+            list-style: none;
+            margin-left: 30px;
+            float: left;
+            /*width: 400px;*/
+            /*background: #0aafe6;*/
+            text-align: center;
+        }
+        li{
+            display: inline;
+            /*height: 200px;*/
+            backgroundcolor: #7aba7b;
+        }
+        li>a {
+            display: inline-block;
+            /*height: 200px;*/
+            /*margin: 20px;*/
+            padding: 20px;
+            /*background: red;*/
+            text-decoration: none;
+            text-align: center;
+            font-size: ;
+        }
+        #slide
+    </style>
+</head>
+<body>
+<!--<audio src="./mp3/pockmon.mp3" autoplay="autoplay" loop="loop"></audio>-->
+<div id="app" style="height: 100%; width: 100%; background-color: #1d1d1d">
+    <div id="header" style="background-color: #484848; height: 8%;">
+        <ul class="right">
+            <li><a href="#"><strong>个人主页</strong></a></li>
+            <li><a href="#"><strong>游戏ver1.0</strong></a></li>
+            <li><a href="#"><strong>简历</strong></a></li>
+            <!--            <li><a href="#"><strong>4</strong></a></li>-->
+        </ul>
+        <ul class="left">
+            <li><a href="#" class="button"><strong>游戏说明</strong></a></li>
+        </ul>
+    </div>
+    <div id="container" style="height: 87%;position: relative">
+        <div style="width: 800px;margin: 0 auto">
+            <h3 style="text-align: center;color: #777777">HTML口袋妖怪 ver2.0</h3>
+            <!--            <a href=# style="float: right">跳转至ver1.0</a>-->
+        </div>
+        <div id="center">
+            <canvas id="canvas" width="800" height="600"></canvas>
+            <img id="npc" src="imgs/images/red2_01.png" alt="">
+            <img id="brick" src="img/brick_1.png">
+            <img id="map" src="imgs/map1.png">
+            <img id="girl" src="./imgs/girl0_02.png">
+            <img id="duck" src="./imgs/duck0.png">
+            <img id="man" src="./imgs/man0_02.png">
+            <img id="green" src="./imgs/green0.png">
+            <img id="kabi" src="./imgs/kabi1_01.png">
+            <div>
+                <p id="textKabi" class="textTemplate">zz..ZZZ...</p>
+                <p id="textMan" class="textTemplate">科学的力量真伟大！</p>
+                <p id="textGreen" class="textTemplate">吱吱吱吱吱</p>
+                <p id="textDuck" class="textTemplate">嘎嘎 嘎嘎嘎</p>
+                <p id="textGirl" class="textTemplate">hi</p>
+                <p id="textBoard" class="textTemplate">操作说明：↑↓←→/WASD:人物上下左右移动</br>&nbsp;&nbsp;F键:对话/取消对话</p>
+                <img id="text" src="./imgs/text-boxes0_03.png">
+
+            </div>
+        </div>
+    </div>
+    <div id="footer" style="background-color: #363636; ">
+        <p style="text-align: center;line-height: 45px;color: #6e6e6e;letter-spacing: 3px;font-weight: 20;font-size: 1px">对可能存在的兼容性问题 请使用谷歌浏览器打开本页面</p>
+    </div>
+
+</div>
+<script>
+    // window.onload=function(){
+        alert('操作说明：\n↑↓←→ / WASD：人物上下左右移动;\n空格键：对话/取消对话\n\n尝试与居民聊天吧~\n\n\n服务器响应速度较慢 请耐心等候\n（对可能存在的兼容性问题 请使用谷歌浏览器打开本页面）');
+        var textGirl = document.getElementById('textGirl');
+        var textGreen = document.getElementById('textGreen');
+        var textMan = document.getElementById('textMan');
+        var textKabi = document.getElementById('textKabi');
+        var textDuck = document.getElementById('textDuck');
+        var textBoard = document.getElementById('textBoard');
+        var text = document.getElementById('text');
+        var textTemplate = document.querySelector('.textTemplate');
+        var button = document.querySelector('.button');
+        button.onclick = function () {
+            alert('操作说明：\n↑↓←→ / WASD：人物上下左右移动;\n空格键：对话/取消对话\n\n尝试与居民聊天吧~');
+        };
+
+        var ctx;
+        var npcImg;
+        var brickImg;
+        var mapImg;
+        var mapArray = [
+            [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+            [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+            [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+            [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+            [1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+            [1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1],
+            [1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1],
+            [0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1],
+            [0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1],
+            [0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1],
+            [0, 0, 0, 1, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1],
+            [1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 1, 1, 1, 1, 1],
+            [1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 1, 1, 1, 1, 1],
+            [1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 1, 1, 1, 1, 1],
+            [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1],
+            [1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1],
+            [1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1],
+            [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+            [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+
+        ];
+        var size = 32;
+        var npc = new Npc(11, 10);
+
+        function Npc (x, y) {
+            this.x = x;
+            this.y = y;
+
+
+            this.moveUp = function () {
+                if (this.y === 0 || mapArray[this.y-1][this.x] === 1) {
+                    return;
+                }
+                // console.log(this.x);
+                this.y -= 1;
+            }
+
+            this.moveRight = function () {
+                if (this.x === mapArray[0].length - 1 || mapArray[this.y][this.x+1] === 1) {
+                    return;
+                }
+                this.x += 1;
+            }
+
+            this.moveDown = function () {
+                // npc.style.animation = 'animS 1.2s infinite';
+                if (this.y === mapArray.length - 1 || mapArray[this.y+1][this.x] === 1) {
+                    return;
+                }
+                this.y += 1;
+            }
+
+            this.moveLeft = function () {
+                if (this.x === 0 || mapArray[this.y][this.x-1] === 1) {
+                    return;
+                }
+                this.x -= 1;
+            }
+        }
+
+        function drawNpc (preX, preY) {
+            // 将原先的小球清掉画新的小球
+            ctx.drawImage(mapImg , 0 , 0);
+            drawMap();
+            // ctx.fillStyle = '#ffffff';
+            // ctx.fillRect(preX * size, preY * size, size, size);
+            ctx.drawImage(npcImg, 30, 10, 196, 196, npc.x * size, npc.y * size, size, size);
+            isEnd() && winGame();
+        }
+
+        function drawMap () {
+            for (var y = 0; y < mapArray.length; y++) {
+                for (var x = 0; x < mapArray[y].length; x++) {
+                    mapArray[y][x] === 1 && ctx.drawImage(brickImg, 656, 16, 16, 16, x * size, y * size, size, size);
+                }
+            }
+        }
+
+        function winGame () {
+            document.keydown = function (event) {}
+            ctx.fillStyle = '#000';
+            ctx.fillRect(0, 0, 800, 600);
+
+            ctx.font = '50px Verdana';
+            var gradient = ctx.createLinearGradient(0, 0, 200, 0);
+            gradient.addColorStop('0', 'magenta');
+            gradient.addColorStop('0.5', 'purple');
+            gradient.addColorStop('1', 'blue');
+
+            ctx.fillStyle = gradient;
+            ctx.fillText('WIN!', 100, 200);
+        }
+
+        function isEnd () {
+            return npc.x === mapArray[0].length - 1  && npc.y === mapArray.length - 1;
+        }
+
+        //取消对话框
+        var cancelTalk = function(){
+            text.style.display = 'none';
+            textGirl.style.display = 'none';
+            textBoard.style.display = 'none';
+            textKabi.style.display = 'none';
+            textDuck.style.display = 'none';
+            textGreen.style.display = 'none';
+            textMan.style.display = 'none';
+            textTemplate.style.display = 'none';
+        };
+
+        /** 键盘事件 */
+        document.onkeydown = function (event) {
+            if (isEnd()) {
+                return;
+            }
+            var e = event || window.event || arguments.callee.caller.arguments[0];
+            var flag = true;
+            var preX = npc.x;
+            var preY = npc.y;
+            switch (e.keyCode) {
+                case 38:
+                    // npcImg.style.animation = 'animW 1.2s infinite';
+                    // npcImg.src = "imgs/images/red3_14.png";
+                    // var changeImg = function(){
+                    //     // npcImg.src = "imgs/images/red3_14.png";
+                    //     window.setInterval(function () {
+                    //         npcImg.src = "imgs/images/red3_14.png";
+                    //         // npcImg.style.content = "url('imgs/images/red3_15.png')";
+                    //     },500);
+                    // };
+                    // changeImg();
+                    npc.moveUp();
+                    // npcImg.src = "imgs/images/red3_14.png";
+                    break;
+                case 70:
+                    //对话部分
+                    if (npc.x === 14 && npc.y ===8){
+                        //girl对话
+                        cancelTalk();
+                        text.style.display = 'block';
+                        textGirl.style.display = 'block';
+                    }else if (npc.x === 10 && npc.y === 10){
+                        //board对话
+                        cancelTalk();
+                        text.style.display = 'block';
+                        textBoard.style.display = 'block';
+                    }else if (npc.x === 4 && npc.y === 9){
+                        //kabi对话
+                        cancelTalk();
+                        text.style.display = 'block';
+                        textKabi.style.display = 'block';
+                    }else if (npc.x === 4 && npc.y === 8){
+                        //kabi对话
+                        cancelTalk();
+                        text.style.display = 'block';
+                        textKabi.style.display = 'block';
+                    }else if (npc.x === 15 && npc.y === 8){
+                        //duck对话
+                        cancelTalk();
+                        text.style.display = 'block';
+                        textDuck.style.display = 'block';
+                    }else if (npc.x === 4 && npc.y === 15){
+                        //Green对话
+                        cancelTalk();
+                        text.style.display = 'block';
+                        textGreen.style.display = 'block';
+                    }else if (npc.x === 21 && npc.y === 9){
+                        //Man对话
+                        cancelTalk();
+                        text.style.display = 'block';
+                        textMan.style.display = 'block';
+                    }else if (npc.x === 22 && npc.y === 10){
+                        //Man对话
+                        cancelTalk();
+                        text.style.display = 'block';
+                        textMan.style.display = 'block';
+                    }else {
+                        cancelTalk();
+                    }
+                    break;
+                case 39:
+                    // npcImg.src = "imgs/images/red3_10.png";
+                    npc.moveRight();
+                    // npcImg.src = "imgs/images/red3_10.png";
+                    break;
+                case 40:
+                    // npcImg.src = "imgs/images/red3_02.png";
+                    npc.moveDown();
+                    // npcImg.src = "imgs/images/red3_02.png";
+                    break;
+                case 37:
+                    // npcImg.src = "imgs/images/red3_08.png";
+                    npc.moveLeft();
+                    // npcImg.src = "imgs/images/red3_08.png";
+                    break;
+                case 87:
+                    npc.moveUp();
+                    break;
+                case 83:
+                    npc.moveDown();
+                    break;
+                case 65:
+                    npc.moveLeft();
+                    break;
+                case 68:
+                    npc.moveRight();
+                    break;
+                default:
+                    flag = false;
+                    break;
+            }
+            flag && drawNpc(preX, preY);
+        };
+
+
+
+        onload = function () {
+            var canvas = document.getElementById('canvas');
+            ctx = canvas.getContext('2d');
+            // ctx.fillStyle = '#bababa';
+            // ctx.fillRect(0, 0, 800, 600);
+
+
+            npcImg = document.getElementById('npc');
+            brickImg = document.getElementById('brick');
+            mapImg = document.getElementById('map');
+            ctx.drawImage(mapImg , 0 , 0);
+
+            drawNpc();
+            drawMap();
+        }
+    // };
+
+
+</script>
+</body>
+</html>

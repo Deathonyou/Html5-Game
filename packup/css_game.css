@@ -1,0 +1,46 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+#npc {
+    position: absolute;
+    left: -10000px;
+}
+img {
+    position: absolute;
+    left: -10000px;
+}
+#npc{
+    border: 0;
+}
+#npc{
+    src="imgs/images/red2_01.png"
+}
+@keyframes animW {
+    0%{src: "imgs/images/red2_01.png"}
+    25%{src: "imgs/images/red2_02.png"}
+    50%{background: url("imgs/images/red2_03.png")}
+    75%{background: url("imgs/images/red2_04.png")}
+    100%{background: url("imgs/images/red2_01.png")}
+}
+@keyframes animS {
+    0%{background: url("./imgs/images/player1_01.png")}
+    25%{background: url("./imgs/images/player1_02.png")}
+    50%{background: url("./imgs/images/player1_03.png")}
+    75%{background: url("./imgs/images/player1_04.png")}
+    100%{background: url("./imgs/images/player1_01.png")}
+}
+@keyframes animA {
+    0%{background: url("./imgs/images/player1_05.png")}
+    25%{background: url("./imgs/images/player1_06.png")}
+    50%{background: url("./imgs/images/player1_07.png")}
+    75%{background: url("./imgs/images/player1_08.png")}
+    100%{background: url("./imgs/images/player1_05.png")}
+}
+@keyframes animD {
+    0%{background: url("./imgs/images/player1_09.png")}
+    25%{background: url("./imgs/images/player1_10.png")}
+    50%{background: url("./imgs/images/player1_11.png")}
+    75%{background: url("./imgs/images/player1_12.png")}
+    100%{background: url("./imgs/images/player1_09.png")}
+}
